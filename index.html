@@ -5,41 +5,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sindafa – Sudan | Medical Supplies</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              fadeIn: "fadeIn 1.5s ease-in-out forwards",
+              slideUp: "slideUp 1s ease-in-out forwards",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: 0 },
+                "100%": { opacity: 1 },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(50px)", opacity: 0 },
+                "100%": { transform: "translateY(0)", opacity: 1 },
+              },
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body class="bg-gray-50 text-gray-800">
+  <body class="bg-gradient-to-b from-gray-50 to-white text-gray-800">
     <!-- Hero Section -->
-    <section class="h-[30vh] flex items-center justify-center bg-gradient-to-r from-green-700 to-emerald-500 text-white text-center px-4">
-      <div>
-        <h1 class="text-3xl md:text-5xl font-bold mb-2">Sindafa – Sudan</h1>
-        <p class="text-lg md:text-xl">Orthopedic Supports & Surgical Instruments</p>
+    <section
+      class="relative h-[40vh] flex items-center justify-center text-center px-4 overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-green-700 to-emerald-500 animate-fadeIn"
+      ></div>
+      <div class="relative z-10 text-white space-y-2 animate-slideUp">
+        <h1 class="text-4xl md:text-6xl font-bold tracking-wide drop-shadow-lg">
+          Sindafa – Sudan
+        </h1>
+        <p class="text-xl md:text-2xl">
+          Orthopedic Supports & Surgical Instruments
+        </p>
+        <p class="text-xl md:text-2xl" dir="rtl">
+          دعائم تقويم العظام والأدوات الجراحية
+        </p>
+        <p class="text-base md:text-lg mt-2">
+          We provide delivery | <span dir="rtl">نقدم خدمة التوصيل</span>
+        </p>
       </div>
     </section>
 
     <!-- Product Section -->
-    <section class="px-4 py-8 space-y-10">
-      <!-- Product 1 -->
-      <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col md:flex-row items-center gap-6 p-6">
-        <img src="1.jpg" alt="Knee Brace" class="w-full md:w-1/3 rounded-xl object-cover" />
-        <div class="flex-1">
-          <h2 class="text-2xl font-semibold mb-2">Adjustable Knee Brace</h2>
-          <p class="mb-4 text-gray-600">Provides support, stability, and compression for injury recovery and joint protection.</p>
-          <a href="https://wa.me/1234567890?text=I'm%20interested%20in%20the%20Adjustable%20Knee%20Brace" target="_blank"
-            class="inline-block bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition">
-            Inquire via WhatsApp
-          </a>
+    <section class="px-4 py-14 space-y-16">
+      <!-- Product Card Component -->
+      <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto animate-fadeIn">
+        <!-- Product 1 -->
+        <div
+          class="bg-white/70 backdrop-blur-md rounded-3xl shadow-lg overflow-hidden transition hover:scale-105 duration-300 ease-in-out"
+        >
+          <img src="1.jpg" alt="Knee Brace" class="w-full h-64 object-cover" />
+          <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+            <!-- English -->
+            <div class="space-y-2">
+              <h2 class="text-2xl font-semibold">Adjustable Knee Brace</h2>
+              <p class="text-gray-700">
+                Provides support, stability, and compression for injury recovery
+                and joint protection.
+              </p>
+              <a
+                href="https://wa.me/249918581212?text=I'm%20interested%20in%20the%20Adjustable%20Knee%20Brace"
+                target="_blank"
+                class="inline-block bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition"
+              >
+                Inquire via WhatsApp
+              </a>
+            </div>
+            <!-- Arabic -->
+            <div class="space-y-2" dir="rtl">
+              <h2 class="text-2xl font-semibold">دعامة ركبة قابلة للتعديل</h2>
+              <p class="text-gray-700">
+                توفر الدعم والثبات والضغط اللازم للتعافي من الإصابات وحماية
+                المفاصل.
+              </p>
+              <a
+                href="https://wa.me/249918581212?text=أنا%20مهتم%20بدعامة%20الركبة%20القابلة%20للتعديل"
+                target="_blank"
+                class="inline-block bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition"
+              >
+                استفسر عبر واتساب
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <!-- Product 2 -->
-      <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col md:flex-row items-center gap-6 p-6">
-        <img src="2.jpg" alt="Surgical Instruments Set" class="w-full md:w-1/3 rounded-xl object-cover" />
-        <div class="flex-1">
-          <h2 class="text-2xl font-semibold mb-2">Surgical Instrument Set</h2>
-          <p class="mb-4 text-gray-600">Premium stainless steel instruments for orthopedic, dental, and general surgeries.</p>
-          <a href="https://wa.me/1234567890?text=I'm%20interested%20in%20the%20Surgical%20Instrument%20Set" target="_blank"
-            class="inline-block bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition">
-            Inquire via WhatsApp
-          </a>
+        <!-- Product 2 -->
+        <div
+          class="bg-white/70 backdrop-blur-md rounded-3xl shadow-lg overflow-hidden transition hover:scale-105 duration-300 ease-in-out"
+        >
+          <img
+            src="2.jpg"
+            alt="Surgical Instruments"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+            <!-- English -->
+            <div class="space-y-2">
+              <h2 class="text-2xl font-semibold">Surgical Instrument Set</h2>
+              <p class="text-gray-700">
+                Premium stainless steel instruments for orthopedic, dental, and
+                general surgeries.
+              </p>
+              <a
+                href="https://wa.me/249918581212?text=I'm%20interested%20in%20the%20Surgical%20Instrument%20Set"
+                target="_blank"
+                class="inline-block bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition"
+              >
+                Inquire via WhatsApp
+              </a>
+            </div>
+            <!-- Arabic -->
+            <div class="space-y-2" dir="rtl">
+              <h2 class="text-2xl font-semibold">مجموعة أدوات جراحية</h2>
+              <p class="text-gray-700">
+                أدوات من الفولاذ المقاوم للصدأ عالية الجودة للجراحة العامة
+                وجراحة العظام وطب الأسنان.
+              </p>
+              <a
+                href="https://wa.me/249918581212?text=أنا%20مهتم%20بمجموعة%20الأدوات%20الجراحية"
+                target="_blank"
+                class="inline-block bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition"
+              >
+                استفسر عبر واتساب
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
