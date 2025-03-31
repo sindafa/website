@@ -27,28 +27,18 @@
         },
       };
     </script>
+    <!-- Lucide icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body class="bg-gradient-to-b from-gray-50 to-white text-gray-800">
     <!-- Hero Section -->
-    <section
-      class="relative h-[40vh] flex items-center justify-center text-center px-4 overflow-hidden"
-    >
-      <div
-        class="absolute inset-0 bg-gradient-to-r from-green-700 to-emerald-500 animate-fadeIn"
-      ></div>
+    <section class="relative h-[40vh] flex items-center justify-center text-center px-4 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-green-700 to-emerald-500 animate-fadeIn"></div>
       <div class="relative z-10 text-white space-y-2 animate-slideUp">
-        <h1 class="text-4xl md:text-6xl font-bold tracking-wide drop-shadow-lg">
-          Sindafa – Sudan
-        </h1>
-        <p class="text-xl md:text-2xl">
-          Orthopedic Supports & Surgical Instruments
-        </p>
-        <p class="text-xl md:text-2xl" dir="rtl">
-          دعائم تقويم العظام والأدوات الجراحية
-        </p>
-        <p class="text-base md:text-lg mt-2">
-          We provide delivery | <span dir="rtl">نقدم خدمة التوصيل</span>
-        </p>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-wide drop-shadow-lg">Sindafa – Sudan</h1>
+        <p class="text-xl md:text-2xl">Orthopedic Supports & Surgical Instruments</p>
+        <p class="text-xl md:text-2xl" dir="rtl">دعائم تقويم العظام والأدوات الجراحية</p>
+        <p class="text-base md:text-lg mt-2">We provide delivery | <span dir="rtl">نقدم خدمة التوصيل</span></p>
       </div>
     </section>
 
@@ -56,9 +46,7 @@
     <section class="px-4 py-14 space-y-16">
       <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto animate-fadeIn">
         <!-- Product 1 -->
-        <div
-          class="bg-white/70 backdrop-blur-md rounded-3xl shadow-lg overflow-hidden transition hover:scale-105 duration-300 ease-in-out"
-        >
+        <div class="bg-white/70 backdrop-blur-md rounded-3xl shadow-lg overflow-hidden transition hover:scale-105 duration-300 ease-in-out">
           <img src="1.jpg" alt="Knee Brace" class="w-full h-64 object-cover" />
           <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
             <!-- English -->
@@ -72,6 +60,13 @@
               >
                 Inquire via WhatsApp
               </a>
+              <button
+                onclick="copyLink('https://yourwebsite.com/product1')"
+                class="mt-2 inline-flex items-center gap-2 bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-gray-800 transition"
+              >
+                <i data-lucide="share-2" class="w-4 h-4"></i>
+                Share Product Link
+              </button>
             </div>
             <!-- Arabic -->
             <div class="space-y-2" dir="rtl">
@@ -84,19 +79,20 @@
               >
                 استفسر عبر واتساب
               </a>
+              <button
+                onclick="copyLink('https://yourwebsite.com/product1')"
+                class="mt-2 inline-flex items-center gap-2 bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-gray-800 transition"
+              >
+                <i data-lucide="share-2" class="w-4 h-4"></i>
+                مشاركة رابط المنتج
+              </button>
             </div>
           </div>
         </div>
 
         <!-- Product 2 -->
-        <div
-          class="bg-white/70 backdrop-blur-md rounded-3xl shadow-lg overflow-hidden transition hover:scale-105 duration-300 ease-in-out"
-        >
-          <img
-            src="2.jpg"
-            alt="Surgical Instruments"
-            class="w-full h-64 object-cover"
-          />
+        <div class="bg-white/70 backdrop-blur-md rounded-3xl shadow-lg overflow-hidden transition hover:scale-105 duration-300 ease-in-out">
+          <img src="2.jpg" alt="Surgical Instruments" class="w-full h-64 object-cover" />
           <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
             <!-- English -->
             <div class="space-y-2">
@@ -109,6 +105,13 @@
               >
                 Inquire via WhatsApp
               </a>
+              <button
+                onclick="copyLink('https://yourwebsite.com/product2')"
+                class="mt-2 inline-flex items-center gap-2 bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-gray-800 transition"
+              >
+                <i data-lucide="share-2" class="w-4 h-4"></i>
+                Share Product Link
+              </button>
             </div>
             <!-- Arabic -->
             <div class="space-y-2" dir="rtl">
@@ -121,10 +124,31 @@
               >
                 استفسر عبر واتساب
               </a>
+              <button
+                onclick="copyLink('https://yourwebsite.com/product2')"
+                class="mt-2 inline-flex items-center gap-2 bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-gray-800 transition"
+              >
+                <i data-lucide="share-2" class="w-4 h-4"></i>
+                مشاركة رابط المنتج
+              </button>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Share script -->
+    <script>
+      function copyLink(url) {
+        navigator.clipboard.writeText(url).then(() => {
+          alert("Product link copied to clipboard!");
+        }).catch(err => {
+          alert("Failed to copy link: " + err);
+        });
+      }
+
+      // Load Lucide icons
+      lucide.createIcons();
+    </script>
   </body>
 </html>
