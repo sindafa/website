@@ -61,7 +61,7 @@
                 Inquire via WhatsApp
               </a>
               <button
-                onclick="copyLink('https://yourwebsite.com/product1')"
+                onclick="shareProduct('Adjustable Knee Brace – $25', 'https://yourwebsite.com/product1')"
                 class="mt-2 inline-flex items-center gap-2 bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-gray-800 transition"
               >
                 <i data-lucide="share-2" class="w-4 h-4"></i>
@@ -80,7 +80,7 @@
                 استفسر عبر واتساب
               </a>
               <button
-                onclick="copyLink('https://yourwebsite.com/product1')"
+                onclick="shareProduct('دعامة ركبة قابلة للتعديل – 25 دولار', 'https://yourwebsite.com/product1')"
                 class="mt-2 inline-flex items-center gap-2 bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-gray-800 transition"
               >
                 <i data-lucide="share-2" class="w-4 h-4"></i>
@@ -106,7 +106,7 @@
                 Inquire via WhatsApp
               </a>
               <button
-                onclick="copyLink('https://yourwebsite.com/product2')"
+                onclick="shareProduct('Surgical Instrument Set – $85', 'https://yourwebsite.com/product2')"
                 class="mt-2 inline-flex items-center gap-2 bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-gray-800 transition"
               >
                 <i data-lucide="share-2" class="w-4 h-4"></i>
@@ -125,7 +125,7 @@
                 استفسر عبر واتساب
               </a>
               <button
-                onclick="copyLink('https://yourwebsite.com/product2')"
+                onclick="shareProduct('مجموعة أدوات جراحية – 85 دولار', 'https://yourwebsite.com/product2')"
                 class="mt-2 inline-flex items-center gap-2 bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-gray-800 transition"
               >
                 <i data-lucide="share-2" class="w-4 h-4"></i>
@@ -137,14 +137,22 @@
       </div>
     </section>
 
-    <!-- Share script -->
+    <!-- Share Script -->
     <script>
-      function copyLink(url) {
-        navigator.clipboard.writeText(url).then(() => {
-          alert("Product link copied to clipboard!");
-        }).catch(err => {
-          alert("Failed to copy link: " + err);
-        });
+      function shareProduct(title, url) {
+        if (navigator.share) {
+          navigator
+            .share({
+              title: title,
+              text: title,
+              url: url,
+            })
+            .catch((error) => console.log("Error sharing:", error));
+        } else {
+          navigator.clipboard.writeText(url).then(() => {
+            alert("Link copied to clipboard.");
+          });
+        }
       }
 
       // Load Lucide icons
