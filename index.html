@@ -366,6 +366,34 @@
         
       </div>
     </section>
+<!-- Modal Preview -->
+<div id="imgModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+  <div class="relative">
+    <img id="modalImg" src="" class="max-h-[80vh] rounded-lg shadow-lg" />
+    <button onclick="closeModal()" class="absolute top-2 right-2 bg-white p-1 rounded-full shadow">
+      <i data-lucide="x" class="w-5 h-5 text-black"></i>
+    </button>
+  </div>
+</div>
+
+<script>
+  function openModal(src) {
+    document.getElementById("modalImg").src = src;
+    document.getElementById("imgModal").classList.remove("hidden");
+  }
+  function closeModal() {
+    document.getElementById("imgModal").classList.add("hidden");
+  }
+
+  // Attach click to images (you can also use querySelectorAll)
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".gallery-img").forEach((img) => {
+      img.addEventListener("click", () => openModal(img.src));
+    });
+  });
+
+  lucide.createIcons(); // re-render icons
+</script>
 
     <!-- Share Script -->
     <script>
