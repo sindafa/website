@@ -1,0 +1,50 @@
+[
+  {
+    "english_name": "Adjustable Knee Brace",
+    "arabic_name": "دعامة ركبة قابلة للتعديل",
+    "price_usd": "25",
+    "image": "1.jpg"
+  },
+  {
+    "english_name": "Surgical Instrument Set",
+    "arabic_name": "مجموعة أدوات جراحية",
+    "price_usd": "85",
+    "image": "2.jpg"
+  },
+  {
+    "english_name": "TimSafe Safety Box – 5L",
+    "arabic_name": "صندوق السلامة – 5 لتر",
+    "price_usd": "1.5",
+    "image": "3.jpg"
+  },
+  {
+    "english_name": "Better Life Knee Support",
+    "arabic_name": "دعامة الركبة – Better Life",
+    "price_usd": "4.5",
+    "image": "4.jpg"
+  },
+  {
+    "english_name": "Knee Support – BL011 / BL012",
+    "arabic_name": "دعامة الركبة BL011 / BL012",
+    "price_usd": "5.0",
+    "image": "5.jpg"
+  },
+  {
+    "english_name": "Better Life Back Support",
+    "arabic_name": "دعامة الظهر – Better Life",
+    "price_usd": "8.0",
+    "image": "6.jpg"
+  },
+  {
+    "english_name": "4-Panel Medical Privacy Screen",
+    "arabic_name": "ستارة طبية من 4 أقسام",
+    "price_usd": "50.0",
+    "image": "7.jpg"
+  },
+  {
+    "english_name": "Al Fateh Sterile Syringes – 5ml",
+    "arabic_name": "سرنجات الفاتح المعقمة – ٥ مل",
+    "price_usd": "3 per box (100 pcs)",
+    "image": "8.jpg + 9.jpg"
+  }
+]
