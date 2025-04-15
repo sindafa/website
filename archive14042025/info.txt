@@ -1,6 +1,0 @@
-info
-ukhost4u 
-
-Name	            TTL	  Type	Record	
-sindafa.com.	    14400	A	    185.199.108.153
-www.sindafa.com.	14400	CNAME	sindafa.com
