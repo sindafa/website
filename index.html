@@ -126,41 +126,33 @@
   <script>
     document.getElementById('productForm').addEventListener('submit', function(e) {
       e.preventDefault();
-
+  
       const name = document.getElementById('name').value;
       const whatsapp = document.getElementById('whatsapp').value;
       const email = document.getElementById('email').value;
       const address = document.getElementById('address').value;
-
-      const sellerNumber = "249918581212"; // Change this to your actual seller WhatsApp number
-      const buyerNumber = whatsapp.replace(/\D/g, ''); // clean number
-
+  
+      const sellerNumber = "249918581212"; // Replace with actual seller number
       const sellerMessage = `🛒 طلب جديد من موقع سندافا:
-
-الاسم: ${name}
-الواتساب: ${whatsapp}
-البريد الإلكتروني: ${email}
-العنوان: ${address}
-المنتج: دعامة ركبة قابلة للتعديل
-السعر: 25 دولار`;
-
-      const customerMessage = `مرحباً ${name} 👋
-شكراً لطلبك من سندافا!
-سيتم التواصل معك خلال وقت قصير بخصوص التوصيل والدفع.
-رابط المتابعة: https://sindafa.com/track-order`;
-
+  
+  الاسم: ${name}
+  الواتساب: ${whatsapp}
+  البريد الإلكتروني: ${email}
+  العنوان: ${address}
+  المنتج: دعامة ركبة قابلة للتعديل
+  السعر: 25 دولار`;
+  
       const sellerURL = `https://wa.me/${sellerNumber}?text=${encodeURIComponent(sellerMessage)}`;
-      const customerURL = `https://wa.me/${buyerNumber}?text=${encodeURIComponent(customerMessage)}`;
-
-      // Show thank you
+  
+      // Show thank you message
       document.getElementById('order-form').classList.add('hidden');
       document.getElementById('thank-you').classList.remove('hidden');
-
-      // Open WhatsApp messages
-      setTimeout(() => {
-        window.open(sellerURL, '_blank');
-        window.open(customerURL, '_blank');
-      }, 2000);
+  
+ 
+    // Redirect to tracking page after 8 seconds
+    setTimeout(() => {
+      window.location.href = "https://sindafa.com/track.html";
+    }, 8000);
     });
   </script>
 
