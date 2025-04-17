@@ -6,7 +6,7 @@
     "price_usd": "25",
     "image": "images/1.jpg",
     "url": "/products/knee-support.html",
-    "media": ["images/1.jpg", "images/1.jpg"]
+    "media": ["images/1.jpg"]
   },
   {
     "id": "surgical-instrument-set",
@@ -15,7 +15,7 @@
     "price_usd": "85",
     "image": "images/2.jpg",
     "url": "/products/surgical-instrument-set.html",
-    "media": ["images/2.jpg", "images/2.jpg"]
+    "media": ["images/2.jpg"]
   },
   {
     "id": "safety-box-5l",
@@ -24,7 +24,7 @@
     "price_usd": "1.5",
     "image": "images/3.jpg",
     "url": "/products/safety-box-5l.html",
-    "media": ["images/3.jpg", "images/3.jpg"]
+    "media": ["images/3.jpg"]
   },
   {
     "id": "better-life-knee-support",
@@ -33,7 +33,7 @@
     "price_usd": "4.5",
     "image": "images/4.jpg",
     "url": "/products/better-life-knee-support.html",
-    "media": ["images/4.jpg", "images/4.jpg"]
+    "media": ["images/4.jpg"]
   },
   {
     "id": "bl011-bl012-knee-support",
@@ -42,7 +42,7 @@
     "price_usd": "5.0",
     "image": "images/5.jpg",
     "url": "/products/bl011-bl012-knee-support.html",
-    "media": ["images/5.jpg", "images/5.jpg"]
+    "media": ["images/5.jpg"]
   },
   {
     "id": "better-life-back-support",
@@ -51,7 +51,7 @@
     "price_usd": "8.0",
     "image": "images/6.jpg",
     "url": "/products/better-life-back-support.html",
-    "media": ["images/6.jpg", "images/6.jpg"]
+    "media": ["images/6.jpg"]
   },
   {
     "id": "medical-privacy-screen",
@@ -60,7 +60,7 @@
     "price_usd": "50.0",
     "image": "images/7.jpg",
     "url": "/products/medical-privacy-screen.html",
-    "media": ["images/7.jpg", "images/7.jpg"]
+    "media": ["images/7.jpg"]
   },
   {
     "id": "al-fateh-syringes",
