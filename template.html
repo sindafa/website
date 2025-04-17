@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>دعامة ركبة قابلة للتعديل | Sindafa</title>
+  <title>{{arabic_name}} | Sindafa</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="favicon.ico" />
   <style>
@@ -14,22 +14,21 @@
   <div class="flex items-center justify-center min-h-screen px-4 py-6">
     <main class="bg-white shadow-xl rounded-xl p-4 sm:p-6 w-full max-w-lg md:max-w-4xl space-y-6 transition-all">
       <header class="text-center space-y-1">
-        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">دعامة ركبة قابلة للتعديل</h1>
+        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">{{arabic_name}}</h1>
         <p class="text-sm text-blue-600">سندافا – السودان | مستلزمات طبية</p>
       </header>
       <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
         <div class="space-y-3 w-full md:w-1/2">
           <div class="aspect-square overflow-hidden rounded-lg shadow-md border mx-auto w-full">
-            <img id="mainImage" src="/images/1.jpg" alt="دعامة ركبة قابلة للتعديل" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+            <img id="mainImage" src="/{{image}}" alt="{{arabic_name}}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
           </div>
           <div class="flex justify-center gap-2">
-            <img src="/images/1.jpg" class="thumbnail w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-md cursor-pointer border-2 border-blue-500" onclick="changeImage(this)" alt="thumb0" />
-<img src="/images/1.jpg" class="thumbnail w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500" onclick="changeImage(this)" alt="thumb1" />
+            {{thumbnails}}
           </div>
         </div>
         <div class="text-center md:text-right space-y-4 md:w-1/2">
           <p class="text-base sm:text-lg text-gray-700">راحة فائقة ودعم طبي يومي لركبتك</p>
-          <p class="text-lg sm:text-xl font-bold text-green-600">$25 فقط</p>
+          <p class="text-lg sm:text-xl font-bold text-green-600">${{price_usd}} فقط</p>
           <form id="whatsappForm" class="space-y-2">
             <button type="submit" class="w-full bg-green-600 hover:bg-green-700 active:scale-95 text-white text-base sm:text-lg py-3 rounded-md font-semibold shadow transition duration-300">
               تواصل عبر واتساب
@@ -63,7 +62,7 @@
     document.getElementById('whatsappForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const sellerNumber = "249918581212";
-      const message = `🛒 طلب جديد:\n\nالمنتج: دعامة ركبة قابلة للتعديل\nالسعر: 25 دولار`;
+      const message = `🛒 طلب جديد:\n\nالمنتج: {{arabic_name}}\nالسعر: {{price_usd}} دولار`;
       const whatsappURL = `https://wa.me/${sellerNumber}?text=${encodeURIComponent(message)}`;
       const modal = document.getElementById('thankYouModal');
       modal.classList.remove('hidden');

@@ -1,120 +1,0 @@
-<!DOCTYPE html>
-<html lang="en" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>تتبع طلبك | Track Your Order - سندافا</title>
-  <meta name="description" content="صفحة تتبع الطلبات - سندافا. راقب حالة طلبك بسهولة." />
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 text-gray-800 font-sans">
-
-  <!-- Header -->
-  <header class="bg-white shadow-md p-4 text-center">
-    <h1 class="text-xl font-bold">📦 تتبع طلبك | Track Your Order</h1>
-    <p class="text-sm text-gray-600">أدخل رقم واتسابك أو اسمك لمتابعة حالة الطلب</p>
-  </header>
-
-  <!-- Tracking Form -->
-  <main class="max-w-md mx-auto mt-8 p-6 bg-white rounded-xl shadow-lg text-right">
-    <form onsubmit="showTracking(event)" class="space-y-4">
-      <label class="block text-sm font-semibold">رقم واتساب أو الاسم</label>
-      <input type="text" id="trackInput" placeholder="مثال: 249912345678 أو أحمد"
-             class="w-full rounded border border-gray-300 px-4 py-2 text-left focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
-        عرض حالة الطلب
-      </button>
-    </form>
-  </main>
-
-  <!-- Tracking Status -->
-  <section id="trackingResult" class="hidden max-w-md mx-auto mt-6 bg-white rounded-xl shadow p-6 space-y-4">
-    <h2 class="text-lg font-bold text-green-600">🔄 حالة الطلب</h2>
-        <!-- Order Progress Stages -->
-        <div class="space-y-4 text-sm">
-
-            <!-- Stage 1: Order Received -->
-            <div class="flex items-center gap-3">
-            <div class="w-6 h-6 flex items-center justify-center bg-green-500 text-white rounded-full">1</div>
-            <div>
-                <p class="font-semibold text-green-700">تم استلام الطلب</p>
-                <p class="text-xs text-gray-500">طلبك تم استلامه بنجاح</p>
-            </div>
-            </div>
-        
-            <!-- Stage 2: Payment In Progress -->
-            <div class="flex items-center gap-3">
-            <div class="w-6 h-6 flex items-center justify-center bg-yellow-400 text-white rounded-full animate-pulse">2</div>
-            <div>
-                <p class="font-semibold text-yellow-600">الدفع قيد المعالجة</p>
-                <p class="text-xs text-gray-500">يرجى إتمام التحويل عبر بنكك</p>
-            </div>
-            </div>
-        
-            <!-- Stage 3: Preparing Shipment -->
-            <div class="flex items-center gap-3 opacity-40">
-            <div class="w-6 h-6 flex items-center justify-center bg-gray-300 text-white rounded-full">3</div>
-            <div>
-                <p class="font-semibold text-gray-500">يتم تجهيز الشحنة</p>
-                <p class="text-xs text-gray-400">سنجمع طلبك للتوصيل قريباً</p>
-            </div>
-            </div>
-        
-            <!-- Stage 4: Out for Delivery -->
-            <div class="flex items-center gap-3 opacity-30">
-            <div class="w-6 h-6 flex items-center justify-center bg-gray-300 text-white rounded-full">4</div>
-            <div>
-                <p class="font-semibold text-gray-500">الشحنة في الطريق إليك</p>
-                <p class="text-xs text-gray-400">سيتم التوصيل في أقرب وقت</p>
-            </div>
-            </div>
-        
-            <!-- Stage 5: Delivered -->
-            <div class="flex items-center gap-3 opacity-20">
-            <div class="w-6 h-6 flex items-center justify-center bg-gray-300 text-white rounded-full">5</div>
-            <div>
-                <p class="font-semibold text-gray-500">تم التوصيل</p>
-                <p class="text-xs text-gray-400">تم تسليم الطلب بنجاح</p>
-            </div>
-            </div>
-        
-        </div>
-  
-  
-      
-
-    <div class="mt-4 text-sm text-gray-700 space-y-2">
-      <p>⏰ وقت التوصيل المتوقع: من 3 إلى 5 أيام .</p>
-      <p>💳 الدفع فقط عبر بنكك:</p>
-      <ul class="list-disc pl-5" >
-        <li style="list-style: none;">💠 اسم الحساب: سندافا</li>
-        <li style="list-style: none;">💠 رقم الحساب: 1234 5678 9012</li>
-        <li style="list-style: none;">💠 البنك: بنك الخرطوم (Bank of Khartoum)</li>
-      </ul>
-    </div>
-
-    <a href="https://wa.me/249912345678" target="_blank"
-       class="inline-block mt-4 text-center bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-      تواصل معنا عبر واتساب
-    </a>
-  </section>
-
-  <script>
-    function showTracking(event) {
-      event.preventDefault();
-      const input = document.getElementById("trackInput").value.trim();
-      if (input === "") return;
-      
-      // Show status section (simulation)
-      document.getElementById("trackingResult").classList.remove("hidden");
-    }
-  </script>
-
-  <!-- Footer -->
-  <footer class="text-center text-xs text-gray-500 py-6 mt-10">
-    &copy; 2025 Sindafa – Sudan | Medical Supplies <br>
-    سندافا – السودان | مستلزمات طبية
-  </footer>
-
-</body>
-</html>
