@@ -10,7 +10,7 @@ if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
 products.forEach(product => {
   const thumbnails = product.media.map((src, i) => {
     const border = i === 0 ? "border-blue-500" : "border-transparent hover:border-blue-500";
-    return `<img src="/${src}" class="thumbnail w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-md cursor-pointer border-2 ${border}" onclick="changeImage(this)" alt="thumb${i}" />`;
+    return `<img src="${src}" class="thumbnail w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-md cursor-pointer border-2 ${border}" onclick="changeImage(this)" alt="thumb${i}" />`;
   }).join("\n");
 
   const page = template
