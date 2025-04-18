@@ -55,138 +55,170 @@
     </div>
   </div>
 
+
+
+
+<!-- Floating WhatsApp Icon Button -->
+<a href="https://wa.me/249918581212?text=مرحباً، أود%20الاستفسار%20عن%20أحد%20المنتجات%20من%20شركة%20سندافا%20للمستلزمات%20طبية" target="_blank"
+   class="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg z-50 transition">
+  <i class="fab fa-whatsapp fa-lg"></i>
+</a>
+
+
+<!-- Floating Share Icon Button -->
+<button onclick="shareWebsite()" 
+   class="fixed bottom-20 right-4 bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg z-50 transition">
+  <i class="fas fa-share-alt fa-lg"></i>
+</button>
+
+
+
   <!-- Load Products Dynamically -->
   <script>
-  fetch('products.json')
-    .then(response => response.json())
-    .then(products => {
-      const container = document.getElementById('products');
-
-      if (products.length === 0) {
-        container.innerHTML = '<p class="text-center text-gray-500 col-span-full">لا توجد منتجات حالياً.</p>';
-        return;
-      }
-
-      products.forEach((product, index) => {
-        const card = document.createElement('div');
-        card.className = "bg-white rounded-xl shadow hover:shadow-lg transition p-4 space-y-3";
-
-        // Gallery Wrapper
-        const gallery = document.createElement('div');
-        gallery.className = "flex flex-col sm:flex-row gap-4";
-
-        // Thumbnails
-        const thumbs = document.createElement('div');
-        thumbs.className = "flex sm:flex-col gap-2 overflow-x-auto sm:overflow-y-auto sm:w-20";
-        const mainId = `mainMedia-${index}`;
-
-        product.media.forEach((src, i) => {
-          const isVideo = src.endsWith('.mp4');
-          let thumb;
-
-          if (isVideo) {
-            thumb = document.createElement('video');
-            thumb.muted = true;
-            thumb.loop = true;
-            thumb.src = src;
-          } else {
-            thumb = document.createElement('img');
-            thumb.src = src;
-          }
-
-          thumb.className = "w-16 h-16 object-cover border-2 border-gray-300 cursor-pointer hover:border-blue-500";
-          thumb.onclick = () => showGalleryMedia(mainId, src);
-          thumbs.appendChild(thumb);
-        });
-
-        // Main Media
-        const mainViewer = document.createElement('div');
-        mainViewer.id = mainId;
-        mainViewer.className = "flex-1 aspect-video flex items-center justify-center bg-gray-50 rounded overflow-hidden";
-
-        const initialMedia = product.media[0];
-        if (initialMedia.endsWith('.mp4')) {
-          mainViewer.innerHTML = `<video controls autoplay class="max-h-60 w-full object-contain"><source src="${initialMedia}" type="video/mp4" /></video>`;
-        } else {
-          mainViewer.innerHTML = `<img src="${initialMedia}" class="max-h-60 w-full object-contain" />`;
+    fetch('products.json')
+      .then(response => response.json())
+      .then(products => {
+        const container = document.getElementById('products');
+  
+        if (products.length === 0) {
+          container.innerHTML = '<p class="text-center text-gray-500 col-span-full">لا توجد منتجات حالياً.</p>';
+          return;
         }
-
-        gallery.appendChild(thumbs);
-        gallery.appendChild(mainViewer);
-
-        // Product info
-        const info = document.createElement('div');
-        info.className = "space-y-1 text-right";
-
-        const h2 = document.createElement('h2');
-        h2.className = "font-semibold text-lg";
-        h2.textContent = product.arabic_name;
-
-        const pEn = document.createElement('p');
-        pEn.className = "text-sm text-gray-500";
-        pEn.textContent = product.english_name;
-
-        const pPrice = document.createElement('p');
-        pPrice.className = "text-green-600 font-bold text-sm";
-        pPrice.textContent = `$${product.price_usd}`;
-
-        // WhatsApp button
-        const waBtn = document.createElement('a');
-        waBtn.href = "#";
-        waBtn.className = "inline-flex items-center gap-1 text-gray-700 hover:text-blue-600 text-sm font-medium py-1.5 px-3 rounded border border-gray-300 hover:border-blue-500";
-        waBtn.innerHTML = `<i class="fab fa-whatsapp text-green-600"></i><span>أطلب الآن</span>`;
-          waBtn.onclick = (e) => {
-          e.preventDefault();
-          const modal = document.getElementById("thankYouModal");
-          modal.classList.remove("hidden");
-          modal.classList.add("flex");
-          const whatsappURL = `https://wa.me/249918581212?text=مرحباً، أود الاستفسار عن المنتج: ${product.arabic_name}`;
-          setTimeout(() => {
-            window.location.href = whatsappURL;
-          }, 1500);
-        };
-
-        // Share button
-        const shareBtn = document.createElement('button');
-        shareBtn.className = "inline-flex items-center gap-1 text-gray-700 hover:text-blue-600 text-sm font-medium py-1.5 px-3 rounded border border-gray-300 hover:border-blue-500";
-        shareBtn.innerHTML = `<i class="fas fa-share-alt"></i><span>مشاركة</span>`;
-        shareBtn.onclick = (e) => shareProduct(e, product.arabic_name, product.url);
-
-        // Group buttons in a flex container
-        const btnGroup = document.createElement('div');
-        btnGroup.className = "flex flex-wrap justify-center gap-2 mt-2";
-        btnGroup.appendChild(waBtn);
-        btnGroup.appendChild(shareBtn);
-
-        info.appendChild(h2);
-        info.appendChild(pEn);
-        info.appendChild(pPrice);
-        info.appendChild(btnGroup);
-
-        card.appendChild(gallery);
-        card.appendChild(info);
-        container.appendChild(card);
+  
+        products.forEach((product, index) => {
+          const card = document.createElement('div');
+          card.className = "bg-white rounded-xl shadow hover:shadow-lg transition p-4 space-y-3";
+  
+          // Gallery Wrapper
+          const gallery = document.createElement('div');
+          gallery.className = "flex flex-col sm:flex-row gap-4";
+  
+          // Thumbnails
+          const thumbs = document.createElement('div');
+          thumbs.className = "flex sm:flex-col gap-2 overflow-x-auto sm:overflow-y-auto sm:w-20";
+          const mainId = `mainMedia-${index}`;
+  
+          product.media.forEach((src, i) => {
+            const isVideo = src.endsWith('.mp4');
+            let thumb;
+  
+            if (isVideo) {
+              thumb = document.createElement('video');
+              thumb.muted = true;
+              thumb.loop = true;
+              thumb.src = src;
+            } else {
+              thumb = document.createElement('img');
+              thumb.src = src;
+            }
+  
+            thumb.className = "w-16 h-16 object-cover border-2 border-gray-300 cursor-pointer hover:border-blue-500";
+            thumb.onclick = () => showGalleryMedia(mainId, src);
+            thumbs.appendChild(thumb);
+          });
+  
+          // Main Media
+          const mainViewer = document.createElement('div');
+          mainViewer.id = mainId;
+          mainViewer.className = "flex-1 aspect-video flex items-center justify-center bg-gray-50 rounded overflow-hidden";
+  
+          const initialMedia = product.media[0];
+          if (initialMedia.endsWith('.mp4')) {
+            mainViewer.innerHTML = `<video controls autoplay class="max-h-60 w-full object-contain"><source src="${initialMedia}" type="video/mp4" /></video>`;
+          } else {
+            mainViewer.innerHTML = `<img src="${initialMedia}" class="max-h-60 w-full object-contain" />`;
+          }
+  
+          gallery.appendChild(thumbs);
+          gallery.appendChild(mainViewer);
+  
+          // Product info
+          const info = document.createElement('div');
+          info.className = "space-y-1 text-right";
+  
+          const h2 = document.createElement('h2');
+          h2.className = "font-semibold text-lg";
+          h2.textContent = product.arabic_name;
+  
+          const pEn = document.createElement('p');
+          pEn.className = "text-sm text-gray-500";
+          pEn.textContent = product.english_name;
+  
+          const pPrice = document.createElement('p');
+          pPrice.className = "text-green-600 font-bold text-sm";
+          pPrice.textContent = `$${product.price_usd}`;
+  
+          // WhatsApp button
+          const waBtn = document.createElement('a');
+          waBtn.href = "#";
+          waBtn.className = "inline-flex items-center gap-1 text-gray-700 hover:text-blue-600 text-sm font-medium py-1.5 px-3 rounded border border-gray-300 hover:border-blue-500";
+          waBtn.innerHTML = `<i class="fab fa-whatsapp text-green-600"></i><span>أطلب الآن</span>`;
+            waBtn.onclick = (e) => {
+            e.preventDefault();
+            const modal = document.getElementById("thankYouModal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            const whatsappURL = `https://wa.me/249918581212?text=مرحباً، أود الاستفسار عن المنتج: ${product.arabic_name}`;
+            setTimeout(() => {
+              window.location.href = whatsappURL;
+            }, 1500);
+          };
+  
+          // Share button
+          const shareBtn = document.createElement('button');
+          shareBtn.className = "inline-flex items-center gap-1 text-gray-700 hover:text-blue-600 text-sm font-medium py-1.5 px-3 rounded border border-gray-300 hover:border-blue-500";
+          shareBtn.innerHTML = `<i class="fas fa-share-alt"></i><span>مشاركة</span>`;
+          shareBtn.onclick = (e) => shareProduct(e, product.arabic_name, product.url);
+  
+          // Group buttons in a flex container
+          const btnGroup = document.createElement('div');
+          btnGroup.className = "flex flex-wrap justify-center gap-2 mt-2";
+          btnGroup.appendChild(waBtn);
+          btnGroup.appendChild(shareBtn);
+  
+          info.appendChild(h2);
+          info.appendChild(pEn);
+          info.appendChild(pPrice);
+          info.appendChild(btnGroup);
+  
+          card.appendChild(gallery);
+          card.appendChild(info);
+          container.appendChild(card);
+        });
       });
-    });
-
-  function showGalleryMedia(containerId, src) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    if (src.endsWith('.mp4')) {
-      container.innerHTML = `<video controls autoplay class="max-h-60 w-full object-contain"><source src="${src}" type="video/mp4" /></video>`;
-    } else {
-      container.innerHTML = `<img src="${src}" class="max-h-60 w-full object-contain" />`;
+  
+    function showGalleryMedia(containerId, src) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+  
+      if (src.endsWith('.mp4')) {
+        container.innerHTML = `<video controls autoplay class="max-h-60 w-full object-contain"><source src="${src}" type="video/mp4" /></video>`;
+      } else {
+        container.innerHTML = `<img src="${src}" class="max-h-60 w-full object-contain" />`;
+      }
     }
-  }
+  
+    function shareProduct(event, name, url) {
+      if (navigator.share) {
+        navigator.share({
+          title: name,
+          text: `شاهد هذا المنتج: ${name}`,
+          url: url
+        });
+      } else {
+        alert("ميزة المشاركة غير مدعومة على هذا المتصفح.");
+      }
+    }
+  
+  function shareWebsite() {
+    const shareData = {
+      title: 'سندافا للمستلزمات طبية',
+      text: 'اكتشف منتجات طبية عالية الجودة من شركة سندافا.',
+      url: 'https://sindafa.com'
+    };
 
-  function shareProduct(event, name, url) {
     if (navigator.share) {
-      navigator.share({
-        title: name,
-        text: `شاهد هذا المنتج: ${name}`,
-        url: url
-      });
+      navigator.share(shareData).catch(console.error);
     } else {
       alert("ميزة المشاركة غير مدعومة على هذا المتصفح.");
     }
