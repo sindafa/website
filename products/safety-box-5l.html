@@ -84,8 +84,8 @@
 
     document.getElementById('whatsappForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      //const sellerNumber = "249918581212";
-      const sellerNumber = "7768127686";
+      const sellerNumber = "249918581212";
+      // const sellerNumber = "7768127686";
       const message = `🛒 طلب جديد:\n\nالمنتج: صندوق السلامة – 5 لتر\nالسعر: 1.5 دولار`;
       const whatsappURL = `https://wa.me/${sellerNumber}?text=${encodeURIComponent(message)}`;
       const modal = document.getElementById('thankYouModal');
