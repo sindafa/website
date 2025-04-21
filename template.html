@@ -84,7 +84,8 @@
 
     document.getElementById('whatsappForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      const sellerNumber = "249918581212";
+      //const sellerNumber = "249918581212";
+      const sellerNumber = "15556427458";
       const message = `🛒 طلب جديد:\n\nالمنتج: {{arabic_name}}\nالسعر: {{price_usd}} دولار`;
       const whatsappURL = `https://wa.me/${sellerNumber}?text=${encodeURIComponent(message)}`;
       const modal = document.getElementById('thankYouModal');
