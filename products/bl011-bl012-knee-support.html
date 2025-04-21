@@ -84,7 +84,8 @@
 
     document.getElementById('whatsappForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      const sellerNumber = "249918581212";
+      //const sellerNumber = "249918581212";
+      const sellerNumber = "7768127686";
       const message = `🛒 طلب جديد:\n\nالمنتج: دعامة الركبة BL011 / BL012\nالسعر: 5.0 دولار`;
       const whatsappURL = `https://wa.me/${sellerNumber}?text=${encodeURIComponent(message)}`;
       const modal = document.getElementById('thankYouModal');
